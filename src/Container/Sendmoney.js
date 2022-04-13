@@ -35,7 +35,7 @@ const Sendmoney = (props) => {
   //fetching old balance of reciever
   const getBalance = async (e) => {
     const db = getDatabase();
-    const starCountRef = ref(db, "customer/" + index + "/Balance");
+    const starCountRef = ref(db, "customer2/" + index + "/Balance");
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       /*  console.log(data); */
@@ -74,13 +74,13 @@ const Sendmoney = (props) => {
   const patchData = async (e) => {
     e.preventDefault();
     if (numberAsInt <= SenderBalance && senderindx !== index) {
-      update(ref(database, "customer/" + senderindx), {
+      update(ref(database, "customer2/" + senderindx), {
         Balance: senderUpdatebalance,
       })
         .then(console.log)
         .catch(console.log);
 
-      update(ref(database, "customer/" + index), {
+      update(ref(database, "customer2/" + index), {
         Balance: Newbalance,
       })
         .then(console.log)
